@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+{% load staticfiles%}
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Каталог</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <div class="container">
         <div class="header">
             <a class="logo" href="index.html"><img src="images/logo.png" alt="Логотип"></a>
         </div>
         <div class="div-menu">
             <div class="menu-li"><a href="index.html" class="start_menu-link">Главная</a></div>
-            <div class="menu-li"><a href="catalog.html" class="start_menu-link">Каталог</a></div>
-            <div class="menu-li"><a href="contacts.html" class="start_menu-link">Контакты</a></div>
+            <div class="menu-li"><a href="{% url 'product' %}" class="start_menu-link">Каталог</a></div>
+            <div class="menu-li"><a href="{% url 'contact' %}" class="start_menu-link">Контакты</a></div>
         </div>
     </div>
     <hr>
