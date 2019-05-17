@@ -1,48 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Каталог</title>
-    <link rel="stylesheet" href="style.css">
-    <div class="container">
-        <div class="header">
-            <a class="logo" href="index.html"><img src="images/logo.png" alt="Логотип"></a>
+{% block content %}
+
+{% for product in products %}
+<div class="block">
+    <a class="catalog-menu-link">
+        <img class="img-catalog" src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
+        <div class="block">
+            <h3>{{ product.category.name }}</h3>
+            <h4>{{ product.name }}</h4>
         </div>
-        <div class="div-menu">
-            <div class="menu-li"><a href="index.html" class="start_menu-link">Главная</a></div>
-            <div class="menu-li"><a href="catalog.html" class="start_menu-link">Каталог</a></div>
-            <div class="menu-li"><a href="contacts.html" class="start_menu-link">Контакты</a></div>
-        </div>
-    </div>
-    <hr>
-</head>
+    </a>
+</div>
+{% endfor %}
 
-<body>
-    <h1>Каталог</h1>
-    <!-- Полувагон -->
-    
-    <div class="content">
-        <div class="block"><a href="vagons/poluvagon.html"><img class="img-catalog" src="images/poluvagon%20(small_size).jpg" alt=""></a></div>
-        <div class="block"><a class="catalog-menu-link" href="vagons/poluvagon.html">Полувагон грузовой модели 12-132</a></div>
-    </div>
-    <!--Крытый вагон-->
-    <div class="content">
-        <div class="block"><a href="vagons/krytyi.html"><img class="img-catalog" src="images/krytyi%20(small_size).jpg" alt=""></a></div>
-        <div class="block"><a class="catalog-menu-link" href="vagons/krytyi.html">
-                <nobr>4-осный</nobr> крытый вагон модели 11&ndash;066
-            </a></div>
-    </div>
-    <!--Платформа-->
-    <div class="content">
-        <div class="block"><a href="vagons/platforma.html"><img class="img-catalog" src="images/platforma(small_size).jpg" alt=""></a></div>
-        <div class="block"><a class="catalog-menu-link" href="vagons/platforma.html">Платформа модели 13-4012</a></div>
-    </div>
+{% endblock %}
 
-</body>
-<footer>
-    <hr>
-    <p>&copy;Все права защищены</p>
-</footer>
 
-</html>

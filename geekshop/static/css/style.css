@@ -9,6 +9,10 @@ body {
     margin: 0 auto;
 }
 
+a {
+    text-decoration: None
+}
+
 .logo {
     margin-left: 15px;
     display: block;

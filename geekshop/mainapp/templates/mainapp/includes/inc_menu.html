@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="container">
+    <a class="logo" href="{% url 'main' %}"><img src="{% static 'img/logo.png' %}" alt="Логотип"></a>
+    <div class="div-menu">
+        <a href="{% url 'main' %}" class="start_menu-link">{{ links_menu.main|title }}</a>
+        <a href="{% url 'products:index' %}"
+           class="{% if request.resolver_match.namespace == 'products' %} active {% endif %}">
+            {{ links_menu.products|title }}
+        </a>
+        <a href="{% url 'contact' %}" class="start_menu-link">{{ links_menu.contact|title }}</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'auth:edit' %}" class="start_menu-link">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+             <a href="{% url 'auth:logout' %}" class="start_menu-link">Выйти</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}" class="start_menu-link">Войти</a>
+        {% endif %}
+    </div>
+</div>
